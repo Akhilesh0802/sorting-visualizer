@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Visualizer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        #array-container {
+            display: flex;
+            align-items: flex-end;
+            height: 300px;
+            margin: 20px;
+            position: relative;
+        }
+
+        .bar {
+            margin: 0 2px;
+            background-color: teal;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -20px;
+            color: black;
+            font-size: 12px;
+        }
+
+        #controls {
+            margin: 20px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        select, button, label, input {
+            margin: 5px;
+            padding: 10px;
+            background-color: teal;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="range"], input[type="number"] {
+            width: 150px;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sort Visualizer</h1>
+    <div id="array-container"></div>
+    <div id="controls">
+        <label>
+            Array Size
+            <input type="number" id="array-size" min="5" max="100" value="50">
+        </label>
+        <button onclick="generateArray()">Generate Random Array</button>
+        <select id="algorithm-select">
+            <option value="selectionSort">Selection Sort</option>
+            <option value="bubbleSort">Bubble Sort</option>
+            <option value="insertionSort">Insertion Sort</option>
+            <option value="mergeSort">Merge Sort</option>
+            <option value="quickSort">Quick Sort</option>
+        </select>
+        <button onclick="startSorting()">Start Sorting</button>
+        <label>
+            Show Data Labels
+            <input type="checkbox" id="show-labels" onchange="toggleLabels()">
+        </label>
+        <label>
+            Speed
+            <input type="range" id="speed-range" min="1" max="100" value="50" />
+        </label>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
